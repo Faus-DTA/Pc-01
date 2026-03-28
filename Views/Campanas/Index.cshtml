@@ -1,0 +1,50 @@
+@model IEnumerable<Pc_01.Models.Campania>
+
+@{
+    ViewData["Title"] = "Listado de Campañas";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Estado</th>
+            <th>Canal</th>
+            <th>Descuento</th>
+            <th>Fechas</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var campania in Model)
+        {
+            <tr>
+                <td>@campania.Nombre</td>
+                <td>@campania.Categoria</td>
+                <td>
+                    @if (campania.Estado == "Vigente")
+                    {
+                        <span class="badge bg-success">@campania.Estado</span>
+                    }
+                    else if (campania.Estado == "Próxima")
+                    {
+                        <span class="badge bg-warning">@campania.Estado</span>
+                    }
+                    else if (campania.Estado == "Finalizada")
+                    {
+                        <span class="badge bg-danger">@campania.Estado</span>
+                    }
+                </td>
+                <td>@campania.Canal</td>
+                <td>@campania.DescuentoPct%</td>
+                <td>@campania.FechaInicio.ToString("dd/MM/yyyy") - @campania.FechaFin.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <button class="btn btn-primary">Ver Detalle</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
