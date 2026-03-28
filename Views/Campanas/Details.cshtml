@@ -1,0 +1,43 @@
+@model Pc_01.Models.Campania
+
+@{
+    ViewData["Title"] = "Detalle de Campaña";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Nombre</h5>
+        <dl class="row">
+            <dt class="col-sm-3">Categoría</dt>
+            <dd class="col-sm-9">@Model.Categoria</dd>
+            <dt class="col-sm-3">Estado</dt>
+            <dd class="col-sm-9">
+                @if (Model.Estado == "Vigente")
+                {
+                    <span class="badge bg-success">@Model.Estado</span>
+                }
+                else if (Model.Estado == "Próxima")
+                {
+                    <span class="badge bg-warning">@Model.Estado</span>
+                }
+                else if (Model.Estado == "Finalizada")
+                {
+                    <span class="badge bg-danger">@Model.Estado</span>
+                }
+            </dd>
+            <dt class="col-sm-3">Fecha Inicio</dt>
+            <dd class="col-sm-9">@Model.FechaInicio.ToString("dd/MM/yyyy")</dd>
+            <dt class="col-sm-3">Fecha Fin</dt>
+            <dd class="col-sm-9">@Model.FechaFin.ToString("dd/MM/yyyy")</dd>
+            <dt class="col-sm-3">Descuento</dt>
+            <dd class="col-sm-9">@Model.DescuentoPct%</dd>
+            <dt class="col-sm-3">Canal</dt>
+            <dd class="col-sm-9">@Model.Canal</dd>
+            <dt class="col-sm-3">Descripción</dt>
+            <dd class="col-sm-9">@Model.Descripcion</dd>
+        </dl>
+        <a asp-action="Index" class="btn btn-secondary">Volver al listado</a>
+    </div>
+</div>
