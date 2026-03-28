@@ -42,7 +42,7 @@
                 <td>@campania.DescuentoPct%</td>
                 <td>@campania.FechaInicio.ToString("dd/MM/yyyy") - @campania.FechaFin.ToString("dd/MM/yyyy")</td>
                 <td>
-                    <button class="btn btn-primary">Ver Detalle</button>
+                    <a asp-action="Details" asp-route-id="@campania.Id" class="btn btn-primary">Ver Detalle</a>
                 </td>
             </tr>
         }
