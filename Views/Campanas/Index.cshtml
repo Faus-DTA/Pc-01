@@ -6,6 +6,33 @@
 
 <h1>@ViewData["Title"]</h1>
 
+<form method="get" asp-action="Index" class="mb-4">
+    <div class="row g-3">
+        <div class="col-md-4">
+            <label for="categoria" class="form-label">Categoría</label>
+            <select name="categoria" id="categoria" class="form-select">
+                <option value="">Todas</option>
+                <option value="Electro">Electro</option>
+                <option value="Hogar">Hogar</option>
+                <option value="Moda">Moda</option>
+                <option value="Tecnología">Tecnología</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="estado" class="form-label">Estado</label>
+            <select name="estado" id="estado" class="form-select">
+                <option value="">Todos</option>
+                <option value="Vigente">Vigente</option>
+                <option value="Próxima">Próxima</option>
+                <option value="Finalizada">Finalizada</option>
+            </select>
+        </div>
+        <div class="col-md-4 d-flex align-items-end">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+    </div>
+</form>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -42,7 +69,7 @@
                 <td>@campania.DescuentoPct%</td>
                 <td>@campania.FechaInicio.ToString("dd/MM/yyyy") - @campania.FechaFin.ToString("dd/MM/yyyy")</td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@campania.Id" class="btn btn-primary">Ver Detalle</a>
+                    <button class="btn btn-primary">Ver Detalle</button>
                 </td>
             </tr>
         }
